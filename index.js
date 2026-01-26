@@ -13,11 +13,7 @@ let animeCollection;
 
 app.use(cors({
   origin: [
-    "http://localhost:3000", 
-    "https://animezone.sbs",  
-    "https://animezones.vercel.app",
-    "https://animezones-mongouri.up.railway.app/",       // Frontend
-    "https://api.animezone.sbs"      // Backend custom domain (Render)
+    "http://localhost:3000"       // Backend custom domain (Render)
   ]
 }));
 
@@ -185,9 +181,6 @@ async function startServer() {
     const db = client.db("animeDB");
     animeCollection = db.collection("animes");
 
-    app.listen(PORT, () => {
-      console.log(`✅ Server running at http://localhost:${PORT}`);
-    });
   } catch (err) {
     console.error("❌ MongoDB connection failed", err);
   }
