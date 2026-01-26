@@ -21,9 +21,12 @@ app.use(express.json());
 app.use(express.static("public"));
 
  /* Root route to confirm API is working*/
+const path = require("path");
+
 app.get("/", (req, res) => {
-  res.send("Welcome to Anime Backend API (MongoDB Version)");
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
+
 
  /* Get all anime - sorted by latest updated episode*/
 app.get("/anime", async (req, res) => {
