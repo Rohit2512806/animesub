@@ -1,2 +1,3 @@
 /anime/:slug               /anime-detail.html        200
 /anime/:slug/episode-:ep   /video-player.html        200
+

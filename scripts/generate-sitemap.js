@@ -30,3 +30,4 @@ const xml = `
 fs.writeFileSync(path.join("public", "sitemap.xml"), xml);
 
 console.log("✔ sitemap.xml generated!");
+

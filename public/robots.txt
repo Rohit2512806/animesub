@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://animezone.sbs/sitemap.xml
+Sitemap: https://animesub.sbs/sitemap.xml
+

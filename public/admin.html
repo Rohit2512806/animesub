@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Admin Panel - AnimeZone</title>
-<meta name="description" content="AnimeZone admin panel for content management and updates." />
+  <title>Admin Panel - animesub</title>
+<meta name="description" content="animesub admin panel for content management and updates." />
 <meta name="robots" content="noindex, nofollow" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
@@ -210,7 +210,7 @@ document.getElementById("animeForm").addEventListener("submit", async function (
   };
 
   try {
-    const res = await fetch('https://animezones-64tp.onrender.com/anime', {
+    const res = await fetch('https://animesubs-64tp.onrender.com/anime', {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newAnime)
@@ -232,7 +232,7 @@ document.getElementById("animeSelector").addEventListener("change", async functi
   const id = this.value;
   if (!id) return;
   try {
-    const res = await fetch(`https://animezones-64tp.onrender.com/anime/${id}`);
+    const res = await fetch(`https://animesubs-64tp.onrender.com/anime/${id}`);
     const anime = await res.json();
 
     document.getElementById("updateForm").style.display = "block";
@@ -274,7 +274,7 @@ document.getElementById("updateForm").addEventListener("submit", async function 
   // 🔁 Fetch existing anime data
   let originalEpisodes = [];
   try {
-    const res = await fetch(`https://animezones-64tp.onrender.com/anime/${id}`);
+    const res = await fetch(`https://animesubs-64tp.onrender.com/anime/${id}`);
     const anime = await res.json();
     originalEpisodes = anime.episodes || [];
   } catch (err) {
@@ -323,7 +323,7 @@ document.getElementById("updateForm").addEventListener("submit", async function 
   };
 
   try {
-    const res = await fetch(`https://animezones-64tp.onrender.com/anime/${id}`, {
+    const res = await fetch(`https://animesubs-64tp.onrender.com/anime/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedAnime)
@@ -346,7 +346,7 @@ document.getElementById("deleteAnimeBtn").addEventListener("click", async () => 
   const btn = document.getElementById("deleteAnimeBtn");
   setLoading(btn, true);
   try {
-    const res = await fetch(`https://animezones-64tp.onrender.com/anime/${id}`, {
+    const res = await fetch(`https://animesubs-64tp.onrender.com/anime/${id}`, {
       method: "DELETE"
     });
     const result = await res.json();
@@ -363,7 +363,7 @@ document.getElementById("deleteAnimeBtn").addEventListener("click", async () => 
 // Load anime list into dropdown
 async function loadAnimeList() {
   try {
-    const res = await fetch('https://animezones-64tp.onrender.com/anime');
+    const res = await fetch('https://animesubs-64tp.onrender.com/anime');
     const animeList = await res.json();
 
     const selector = document.getElementById("animeSelector");
@@ -405,3 +405,4 @@ loadAnimeList();
 
 </body>
 </html>
+

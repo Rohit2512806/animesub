@@ -51,10 +51,10 @@ async function generateStaticPages() {
   <title>${anime.title} All Episodes Watch Online</title>
 
   <meta name="description"
-    content="Watch ${anime.title} all episodes online in HD. Latest episode updates on AnimeZone.">
+    content="Watch ${anime.title} all episodes online in HD. Latest episode updates on animesub.">
 
   <link rel="canonical"
-    href="https://animezone.sbs/animes/${anime.slug}.html">
+    href="https://animesub.sbs/animes/${anime.slug}.html">
 
   <link rel="stylesheet" href="/components.css">
 </head>
@@ -103,3 +103,4 @@ ${footer}
 }
 
 generateStaticPages();
+

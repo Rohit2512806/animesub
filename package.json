@@ -22,11 +22,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Rohit2512806/animezones.git"
+    "url": "git+https://github.com/Rohit2512806/animesubs.git"
   },
   "keywords": [],
   "bugs": {
-    "url": "https://github.com/Rohit2512806/animezones/issues"
+    "url": "https://github.com/Rohit2512806/animesubs/issues"
   },
-  "homepage": "https://github.com/Rohit2512806/animezones#readme"
+  "homepage": "https://github.com/Rohit2512806/animesubs#readme"
 }
+

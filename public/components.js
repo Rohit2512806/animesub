@@ -911,7 +911,7 @@ fetch('/anime')
         if (mainContent) {
             mainContent.innerHTML = `<p style="color: red; text-align: center; padding: 20px;">
                 Error loading anime data. Please try refreshing.
-                Ensure your backend server is running at https://animezones-64tp.onrender.com.
+                Ensure your backend server is running at https://animesubs-64tp.onrender.com.
             </p>`;
         }
     });
@@ -1240,3 +1240,4 @@ document.addEventListener('DOMContentLoaded', () => {
   loadNewSeriesSection();
   loadGenreSection();   displayCurrentPage(new Array(itemsPerPage).fill({}));
 });
+

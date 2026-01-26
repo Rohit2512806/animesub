@@ -14,10 +14,10 @@ let animeCollection;
 app.use(cors({
   origin: [
     "http://localhost:3000", 
-    "https://animezone.sbs",  
-    "https://animezones.vercel.app",
-    "https://animezones-mongouri.up.railway.app/",       // Frontend
-    "https://api.animezone.sbs"      // Backend custom domain (Render)
+    "https://animesub.sbs",  
+    "https://animesubs.vercel.app",
+    "https://animesubs-mongouri.up.railway.app/",       // Frontend
+    "https://api.animesub.sbs"      // Backend custom domain (Render)
   ]
 }));
 
@@ -194,3 +194,4 @@ async function startServer() {
 }
 
 startServer();
+
