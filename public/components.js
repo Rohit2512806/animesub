@@ -824,8 +824,7 @@ function displayVideoPlayerDetails(anime, episodeNum) {
 }
 
 // --- Main Data Fetch and Page-Specific Logic ---
-fetch('https://animezones-64tp.onrender.com/anime')
-
+fetch('/anime')
     .then(response => {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
