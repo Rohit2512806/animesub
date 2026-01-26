@@ -1,5 +1,4 @@
 require("dotenv").config();
-console.log("Loaded MONGO_URI:", process.env.MONGO_URI);
 
 const express = require("express");
 const cors = require("cors");
@@ -13,7 +12,8 @@ let animeCollection;
 
 app.use(cors({
   origin: [
-    "http://localhost:3000"       // Backend custom domain (Render)
+    "http://localhost:3000" 
+         // Backend custom domain (Render)
   ]
 }));
 
@@ -172,18 +172,26 @@ app.delete("/anime/:id", async (req, res) => {
   res.json({ message: `Anime with ID ${animeId} deleted successfully.` });
 });
 
-/**
- * Connect to MongoDB and start the server
- */
-async function startServer() {
-  try {
+ // ✅ MongoDB connect for Vercel (serverless friendly)
+async function connectDB() {
+  if (!animeCollection) {
     await client.connect();
     const db = client.db("animeDB");
     animeCollection = db.collection("animes");
-
-  } catch (err) {
-    console.error("❌ MongoDB connection failed", err);
+    console.log("✅ MongoDB connected");
   }
 }
 
-startServer();
+// ✅ middleware to ensure DB connected
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    console.error("❌ MongoDB connection failed", err);
+    res.status(500).json({ error: "Database connection failed" });
+  }
+});
+
+// ✅ IMPORTANT for Vercel
+module.exports = app;
