@@ -372,21 +372,28 @@ function initializeGenreToggle() {
         const isMobile = window.matchMedia('(max-width: 768px)').matches;
         
         if (isMobile) {
+            // On mobile: start with 4 rows visible (collapsed state)
             genreList.classList.add('collapsed');
-            toggleBtn.classList.add('collapsed');
         }
         
         toggleBtn.addEventListener('click', () => {
             genreList.classList.toggle('collapsed');
-            toggleBtn.classList.toggle('collapsed');
+            toggleBtn.classList.toggle('open');
         });
 
         // Update on window resize
         window.addEventListener('resize', () => {
             const isNowMobile = window.matchMedia('(max-width: 768px)').matches;
             if (!isNowMobile) {
+                // On desktop: show all genres (remove collapsed state)
                 genreList.classList.remove('collapsed');
-                toggleBtn.classList.remove('collapsed');
+                toggleBtn.classList.remove('open');
+            } else {
+                // Back to mobile: show 4 rows
+                if (!genreList.classList.contains('collapsed')) {
+                    genreList.classList.add('collapsed');
+                    toggleBtn.classList.remove('open');
+                }
             }
         });
     }

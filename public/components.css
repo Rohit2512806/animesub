@@ -521,8 +521,12 @@ footer {
   color: var(--accent);
 }
 
-.genre-toggle-btn.collapsed i {
-  transform: rotate(-90deg);
+.genre-toggle-btn i {
+  transition: transform 0.3s ease;
+}
+
+.genre-toggle-btn.open i {
+  transform: rotate(180deg);
 }
 
 .genre-list, .season-list {
@@ -533,14 +537,17 @@ footer {
   margin-top: 20px;
   max-height: 1000px;
   overflow: hidden;
-  transition: max-height 0.4s ease, opacity 0.3s ease;
+  transition: max-height 0.4s ease;
   opacity: 1;
 }
 
 .genre-list.collapsed {
-  max-height: 0;
-  opacity: 0;
-  margin-top: 0;
+  max-height: 250px;
+  overflow: hidden;
+}
+
+.genre-list.expanded {
+  max-height: 1000px;
 }
 
 .genre-item, .season-item {
@@ -779,11 +786,11 @@ footer {
     }
 
     .genre-list {
-      max-height: 500px;
+      max-height: 1000px;
     }
 
     .genre-list.collapsed {
-      max-height: 0;
+      max-height: 250px;
     }
 
     /*header section*/
