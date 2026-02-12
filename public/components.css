@@ -492,13 +492,57 @@ footer {
   margin-bottom: 30px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+/* Genre Header with Toggle Button */
+.genre-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.genre-header .section-title {
+  margin: 0;
+  flex: 1;
+}
+
+.genre-toggle-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.5em;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: transform 0.3s ease;
+}
+
+.genre-toggle-btn:hover {
+  color: var(--accent);
+}
+
+.genre-toggle-btn.collapsed i {
+  transform: rotate(-90deg);
+}
+
 .genre-list, .season-list {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
   margin-top: 20px;
+  max-height: 1000px;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  opacity: 1;
 }
+
+.genre-list.collapsed {
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+}
+
 .genre-item, .season-item {
   background-color: rgb(5, 139, 242);
   color: #f9f6f6;
@@ -727,6 +771,19 @@ footer {
     }
     .search-icon-inside {
         right: calc(50% - (min(600px, 100%) / 2) + 16px); /* Ensure consistent position */
+    }
+
+    /* Genre section responsive styles */
+    .genre-toggle-btn {
+      display: flex !important;
+    }
+
+    .genre-list {
+      max-height: 500px;
+    }
+
+    .genre-list.collapsed {
+      max-height: 0;
     }
 
     /*header section*/

@@ -356,6 +356,39 @@ function populateGenreSection() {
             genreItem.onclick = () => window.filterAnimeByGenre(genre); // Global filter function
             genreListContainer.appendChild(genreItem);
         });
+
+        // Initialize genre toggle functionality
+        initializeGenreToggle();
+    }
+}
+
+// Initialize genre toggle button for mobile/tablet
+function initializeGenreToggle() {
+    const toggleBtn = document.getElementById('genreToggleBtn');
+    const genreList = document.getElementById('genreListContainer');
+    
+    if (toggleBtn && genreList) {
+        // Check if we're on mobile/tablet (should match media query)
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+        
+        if (isMobile) {
+            genreList.classList.add('collapsed');
+            toggleBtn.classList.add('collapsed');
+        }
+        
+        toggleBtn.addEventListener('click', () => {
+            genreList.classList.toggle('collapsed');
+            toggleBtn.classList.toggle('collapsed');
+        });
+
+        // Update on window resize
+        window.addEventListener('resize', () => {
+            const isNowMobile = window.matchMedia('(max-width: 768px)').matches;
+            if (!isNowMobile) {
+                genreList.classList.remove('collapsed');
+                toggleBtn.classList.remove('collapsed');
+            }
+        });
     }
 }
 
